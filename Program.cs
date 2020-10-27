@@ -9,7 +9,7 @@ namespace AlfaTask
             AddToTable table = new AddToTable();
             table.CreateTable();
            
-            Console.WriteLine("Done, path to file - CurrentFolder/bin/Debug");
+            Console.WriteLine("Done, path to file - Current Folder");
             Console.ReadLine();
         }
     }

@@ -16,7 +16,7 @@ namespace AlfaTask
 
             var rootFolder = Directory.GetCurrentDirectory();
             rootFolder = rootFolder.Substring(0,
-                        rootFolder.IndexOf(@"\AlfaTask\", StringComparison.Ordinal) + @"\AlfaTask\".Length);
+                        rootFolder.IndexOf(@"\AlfaTask-master\", StringComparison.Ordinal) + @"\AlfaTask-master\".Length);
             string path = Path.GetFullPath(Path.Combine(rootFolder, "testDoc.rtf"));
 
             //string path = Path.Combine(hosting.ContentRootPath , "testDoc.rtf");
@@ -59,7 +59,7 @@ namespace AlfaTask
             cell42.SetCellValue(text.SearchInString(a, "Наименование договора"));
 
 
-            using (FileStream stream = new FileStream(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"outfile.xlsx"), FileMode.Create, FileAccess.Write))
+            using (FileStream stream = new FileStream(rootFolder, @"outfile.xlsx"), FileMode.Create, FileAccess.Write))
             {
                 workbook.Write(stream);
             }
