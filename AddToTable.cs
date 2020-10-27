@@ -59,7 +59,7 @@ namespace AlfaTask
             cell42.SetCellValue(text.SearchInString(a, "Наименование договора"));
 
 
-            using (FileStream stream = new FileStream(rootFolder, @"outfile.xlsx"), FileMode.Create, FileAccess.Write))
+            using (FileStream stream = new FileStream(Path.Combine(rootFolder, @"outfile.xlsx"), FileMode.Create, FileAccess.Write))
             {
                 workbook.Write(stream);
             }
