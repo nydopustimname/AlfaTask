@@ -1,4 +1,5 @@
-﻿using NPOI.SS.UserModel;
+﻿using Microsoft.Extensions.Hosting;
+using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
 using System;
 using System.IO;
@@ -9,9 +10,16 @@ namespace AlfaTask
     {
         Load file = new Load();
         Search text = new Search();
+        IHostingEnvironment hosting;
         public void CreateTable()
         {
-            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"testDoc.rtf");
+
+            var rootFolder = Directory.GetCurrentDirectory();
+            rootFolder = rootFolder.Substring(0,
+                        rootFolder.IndexOf(@"\AlfaTask\", StringComparison.Ordinal) + @"\AlfaTask\".Length);
+            string path = Path.GetFullPath(Path.Combine(rootFolder, "testDoc.rtf"));
+
+            //string path = Path.Combine(hosting.ContentRootPath , "testDoc.rtf");
             string a = file.LoadFile(path);
 
 
